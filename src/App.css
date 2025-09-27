@@ -1,0 +1,204 @@
+/* Import Color Palette */
+@import './styles/colors.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  background: var(--color-background);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.App {
+  min-height: 100vh;
+  background: var(--gradient-background);
+}
+
+.main-content {
+  margin-top: 80px;
+  padding: 2rem 0;
+  min-height: calc(100vh - 80px);
+}
+
+/* Legacy gradient support */
+:root {
+  --primary-gradient: var(--gradient-primary);
+  --secondary-gradient: var(--gradient-secondary);
+  --success-gradient: linear-gradient(135deg, var(--color-success), #059669);
+  --warning-gradient: var(--gradient-secondary);
+  --tech-blue: var(--color-navy);
+  --tech-purple: var(--color-navy-light);
+  --placement-green: var(--color-success);
+  --skill-orange: var(--color-orange);
+  --glass-bg: var(--glass-background);
+  --glass-border: var(--glass-border);
+}
+
+/* Glass morphism effect */
+.glass-card {
+  background: var(--glass-background);
+  backdrop-filter: var(--glass-backdrop);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Button styles */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.btn-primary {
+  background: var(--primary-gradient);
+  color: white;
+}
+
+.btn-secondary {
+  background: var(--secondary-gradient);
+  color: white;
+}
+
+.btn-success {
+  background: var(--success-gradient);
+  color: white;
+}
+
+.btn-warning {
+  background: var(--warning-gradient);
+  color: white;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Engineering specific styling */
+.engineering-badge {
+  background: linear-gradient(135deg, #2d3748, #4a5568);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.placement-score {
+  background: linear-gradient(135deg, #00b894, #00a085);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.skill-level {
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  margin: 0.5rem 0;
+}
+
+.skill-progress {
+  height: 100%;
+  background: var(--primary-gradient);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+/* Tech stack icons */
+.tech-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: white;
+  margin-right: 0.75rem;
+}
+
+.tech-icon.javascript {
+  background: linear-gradient(135deg, #f7df1e, #f0db4f);
+  color: #323330;
+}
+
+.tech-icon.react {
+  background: linear-gradient(135deg, #61dafb, #21d4fd);
+  color: #20232a;
+}
+
+.tech-icon.python {
+  background: linear-gradient(135deg, #3776ab, #ffd43b);
+}
+
+.tech-icon.java {
+  background: linear-gradient(135deg, #ed8b00, #f89820);
+}
+
+.tech-icon.cpp {
+  background: linear-gradient(135deg, #00599c, #004482);
+}
+
+.tech-icon.nodejs {
+  background: linear-gradient(135deg, #68a063, #8cc84b);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .main-content {
+    margin-top: 70px;
+    padding: 1rem 0;
+  }
+  
+  .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .glass-card {
+    margin: 0 1rem;
+    border-radius: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 0.5rem 0;
+  }
+  
+  .container {
+    padding: 0 0.5rem;
+  }
+}

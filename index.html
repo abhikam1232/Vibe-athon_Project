@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Shala - Engineering Student Learning Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Skill Shala</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#dashboard" class="nav-link active">Dashboard</a>
+                <a href="#goals" class="nav-link">Goals</a>
+                <a href="#recommendations" class="nav-link">Recommendations</a>
+                <a href="#progress" class="nav-link">Progress</a>
+            </div>
+            <div class="user-info">
+                <div class="welcome-banner">
+                    <h1 id="user-name">Welcome to Skill Shala!</h1>
+                    <p>Your personal study companion for academic success</p>
+                    <button id="create-account-btn" class="create-account-btn" onclick="skillShala.showOnboarding()" style="display: none;">
+                        <i class="fas fa-user-plus"></i>
+                        Create New Account
+                    </button>
+                </div>
+                <div class="user-stats">
+                    <span class="points"><i class="fas fa-star"></i> <span id="total-points">0</span></span>
+                    <span class="streak"><i class="fas fa-fire"></i> <span id="streak-count">0</span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Onboarding Modal -->
+    <div id="onboarding-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-user-plus"></i> Welcome to LearnMate!</h2>
+                <p>Let's personalize your learning experience</p>
+            </div>
+            <form id="onboarding-form">
+                <div class="form-group">
+                    <label for="student-name">
+                        <i class="fas fa-user"></i> Your Name
+                    </label>
+                    <input type="text" id="student-name" name="name" required placeholder="Enter your full name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="grade-level">
+                        <i class="fas fa-school"></i> Grade Level
+                    </label>
+                    <select id="grade-level" name="grade" required>
+                        <option value="">Select your grade</option>
+                        <option value="6">Grade 6</option>
+                        <option value="7">Grade 7</option>
+                        <option value="8">Grade 8</option>
+                        <option value="9">Grade 9</option>
+                        <option value="10">Grade 10</option>
+                        <option value="11">Grade 11</option>
+                        <option value="12">Grade 12</option>
+                        <option value="college">College</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>
+                        <i class="fas fa-book"></i> Subjects of Interest
+                    </label>
+                    <div class="subjects-grid">
+                        <label class="subject-checkbox">
+                            <input type="checkbox" name="subjects" value="mathematics">
+                            <span class="checkmark"></span>
+                            <i class="fas fa-calculator"></i> Mathematics
+                        </label>
+                        <label class="subject-checkbox">
+                            <input type="checkbox" name="subjects" value="science">
+                            <span class="checkmark"></span>
+                            <i class="fas fa-flask"></i> Science
+                        </label>
+                        <label class="subject-checkbox">
+                            <input type="checkbox" name="subjects" value="english">
+                            <span class="checkmark"></span>
+                            <i class="fas fa-pen"></i> English
+                        </label>
+                        <label class="subject-checkbox">
+                            <input type="checkbox" name="subjects" value="history">
+                            <span class="checkmark"></span>
+                            <i class="fas fa-landmark"></i> History
+                        </label>
+                        <label class="subject-checkbox">
+                            <input type="checkbox" name="subjects" value="geography">
+                            <span class="checkmark"></span>
+                            <i class="fas fa-globe"></i> Geography
+                        </label>
+                        <label class="subject-checkbox">
+                            <input type="checkbox" name="subjects" value="physics">
+                            <span class="checkmark"></span>
+                            <i class="fas fa-atom"></i> Physics
+                        </label>
+                        <label class="subject-checkbox">
+                            <input type="checkbox" name="subjects" value="chemistry">
+                            <span class="checkmark"></span>
+                            <i class="fas fa-vial"></i> Chemistry
+                        </label>
+                        <label class="subject-checkbox">
+                            <input type="checkbox" name="subjects" value="biology">
+                            <span class="checkmark"></span>
+                            <i class="fas fa-dna"></i> Biology
+                        </label>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn-primary">
+                    <i class="fas fa-rocket"></i> Start Learning Journey
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="section active">
+            <div class="container">
+                <div class="welcome-banner">
+                    <h1>Welcome back, <span id="dashboard-name">Student</span>!</h1>
+                    <p>Ready to continue your learning journey?</p>
+                    <button id="create-account-btn" class="create-account-btn" onclick="skillShala.showOnboarding()" style="display: none;">
+                        <i class="fas fa-user-plus"></i>
+                        Create New Account / Login
+                    </button>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-target"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="goals-completed">0</h3>
+                            <p>Goals Completed Today</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="study-time">0</h3>
+                            <p>Minutes Studied</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="badges-earned">0</h3>
+                            <p>Badges Earned</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="current-streak">0</h3>
+                            <p>Day Streak</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Today's Goals Preview -->
+                <div class="dashboard-section">
+                    <h2><i class="fas fa-bullseye"></i> Today's Goals</h2>
+                    <div id="today-goals-preview" class="goals-preview">
+                        <!-- Goals will be populated by JavaScript -->
+                    </div>
+                    <button class="btn-secondary" onclick="showSection('goals')">
+                        <i class="fas fa-plus"></i> Manage Goals
+                    </button>
+                </div>
+
+                <!-- Recent Achievements -->
+                <div class="dashboard-section">
+                    <h2><i class="fas fa-medal"></i> Recent Achievements</h2>
+                    <div id="recent-achievements" class="achievements-list">
+                        <!-- Achievements will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Goals Section -->
+        <section id="goals" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h1><i class="fas fa-target"></i> Daily Learning Goals</h1>
+                    <p>Set and track your daily learning objectives</p>
+                </div>
+
+                <!-- Goal Creation -->
+                <div class="goal-creator">
+                    <h3>Create New Goal</h3>
+                    <form id="goal-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="goal-type">Goal Type</label>
+                                <select id="goal-type" name="type" required>
+                                    <option value="">Select goal type</option>
+                                    <option value="videos">Watch Videos</option>
+                                    <option value="quizzes">Complete Quizzes</option>
+                                    <option value="reading">Reading Time</option>
+                                    <option value="practice">Practice Problems</option>
+                                    <option value="notes">Take Notes</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="goal-target">Target</label>
+                                <input type="number" id="goal-target" name="target" min="1" required placeholder="e.g., 2">
+                            </div>
+                            <div class="form-group">
+                                <label for="goal-subject">Subject</label>
+                                <select id="goal-subject" name="subject" required>
+                                    <option value="">Select subject</option>
+                                    <!-- Populated by JavaScript based on user interests -->
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-plus"></i> Add Goal
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Goals List -->
+                <div class="goals-container">
+                    <h3>Today's Goals</h3>
+                    <div id="goals-list" class="goals-list">
+                        <!-- Goals will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommendations Section -->
+        <section id="recommendations" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h1><i class="fas fa-lightbulb"></i> Smart Recommendations</h1>
+                    <p>Personalized content based on your interests and progress</p>
+                </div>
+
+                <!-- Recommendation Filters -->
+                <div class="recommendation-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="videos">Videos</button>
+                    <button class="filter-btn" data-filter="articles">Articles</button>
+                    <button class="filter-btn" data-filter="practice">Practice</button>
+                    <button class="filter-btn" data-filter="quizzes">Quizzes</button>
+                </div>
+
+                <!-- Recommendations Grid -->
+                <div id="recommendations-grid" class="recommendations-grid">
+                    <!-- Recommendations will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Section -->
+        <section id="progress" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h1><i class="fas fa-chart-line"></i> Your Progress</h1>
+                    <p>Track your learning journey and achievements</p>
+                </div>
+
+                <!-- Progress Overview -->
+                <div class="progress-overview">
+                    <div class="progress-card">
+                        <h3>Weekly Progress</h3>
+                        <div class="progress-chart">
+                            <canvas id="weekly-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="progress-card">
+                        <h3>Subject Distribution</h3>
+                        <div class="progress-chart">
+                            <canvas id="subject-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Badges Section -->
+                <div class="badges-section">
+                    <h3><i class="fas fa-award"></i> Your Badges</h3>
+                    <div id="badges-container" class="badges-container">
+                        <!-- Badges will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Learning Streak -->
+                <div class="streak-section">
+                    <h3><i class="fas fa-fire"></i> Learning Streak</h3>
+                    <div class="streak-calendar">
+                        <div id="streak-calendar" class="calendar-grid">
+                            <!-- Calendar will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Notifications Panel -->
+    <div id="notifications-panel" class="notifications-panel">
+        <div class="notifications-header">
+            <h3><i class="fas fa-bell"></i> Notifications</h3>
+            <button id="close-notifications" class="close-btn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div id="notifications-list" class="notifications-list">
+            <!-- Notifications will be populated by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Notification Bell -->
+    <button id="notification-bell" class="notification-bell">
+        <i class="fas fa-bell"></i>
+        <span id="notification-count" class="notification-count">0</span>
+    </button>
+
+    <!-- Floating Logout Button -->
+    <div id="floating-logout" class="floating-logout-container" style="display: none;">
+        <button class="floating-logout-btn" onclick="skillShala.logout()" title="Switch User">
+            <i class="fas fa-sign-out-alt"></i>
+        </button>
+        <div class="logout-tooltip">Switch User</div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>

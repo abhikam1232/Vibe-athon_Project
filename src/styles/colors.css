@@ -1,0 +1,87 @@
+/* Vibrant Orange Gradient Palette */
+:root {
+  /* Primary Colors */
+  --color-orange-primary: #ff9500;    /* Main orange */
+  --color-orange-light: #ffc778;      /* Light orange */
+  --color-white: #ffffff;             /* Pure white */
+  --color-orange-medium: #ffc778;     /* Medium orange (same as light) */
+  --color-orange-dark: #ff9500;       /* Dark orange (same as primary) */
+  
+  /* Extended Color Variations */
+  --color-orange-lighter: #ffdb9a;    /* Even lighter orange */
+  --color-orange-darker: #e6850e;     /* Darker orange */
+  --color-orange-darkest: #cc7700;    /* Darkest orange */
+  
+  /* Neutral Colors for Text and Backgrounds */
+  --color-gray-50: #fafafa;
+  --color-gray-100: #f5f5f5;
+  --color-gray-200: #e5e5e5;
+  --color-gray-300: #d4d4d4;
+  --color-gray-400: #a3a3a3;
+  --color-gray-500: #737373;
+  --color-gray-600: #525252;
+  --color-gray-700: #404040;
+  --color-gray-800: #262626;
+  --color-gray-900: #171717;
+  
+  /* Semantic Colors */
+  --color-primary: var(--color-orange-primary);
+  --color-primary-light: var(--color-orange-light);
+  --color-primary-dark: var(--color-orange-darker);
+  
+  --color-secondary: var(--color-orange-light);
+  --color-secondary-light: var(--color-orange-lighter);
+  --color-secondary-dark: var(--color-orange-primary);
+  
+  --color-accent: var(--color-orange-medium);
+  --color-accent-light: var(--color-orange-lighter);
+  --color-accent-dark: var(--color-orange-darker);
+  
+  --color-background: var(--color-white);
+  --color-background-light: var(--color-gray-50);
+  --color-background-dark: var(--color-gray-100);
+  
+  /* Text Colors */
+  --color-text-primary: var(--color-gray-900);
+  --color-text-secondary: var(--color-gray-700);
+  --color-text-muted: var(--color-gray-500);
+  --color-text-light: var(--color-white);
+  
+  /* Status Colors */
+  --color-success: #10B981;
+  --color-success-light: #D1FAE5;
+  --color-warning: var(--color-orange-primary);
+  --color-warning-light: var(--color-orange-lighter);
+  --color-error: #EF4444;
+  --color-error-light: #FEE2E2;
+  --color-info: var(--color-orange-light);
+  --color-info-light: var(--color-orange-lighter);
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, var(--color-orange-primary), var(--color-orange-light));
+  --gradient-secondary: linear-gradient(135deg, var(--color-orange-light), var(--color-orange-lighter));
+  --gradient-accent: linear-gradient(135deg, var(--color-orange-medium), var(--color-orange-light));
+  --gradient-background: linear-gradient(135deg, var(--color-white), var(--color-gray-50));
+  --gradient-hero: linear-gradient(135deg, var(--color-orange-darkest), var(--color-orange-primary), var(--color-orange-light));
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(255, 149, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(255, 149, 0, 0.15);
+  --shadow-lg: 0 10px 15px rgba(255, 149, 0, 0.2);
+  --shadow-xl: 0 20px 25px rgba(255, 149, 0, 0.25);
+  --shadow-2xl: 0 25px 50px rgba(255, 149, 0, 0.3);
+  
+  /* Border Colors */
+  --border-light: rgba(255, 149, 0, 0.1);
+  --border-medium: rgba(255, 149, 0, 0.2);
+  --border-dark: rgba(255, 149, 0, 0.3);
+  
+  /* Hover States */
+  --hover-overlay: rgba(255, 149, 0, 0.05);
+  --hover-overlay-dark: rgba(255, 149, 0, 0.1);
+  
+  /* Glass Effect */
+  --glass-background: rgba(255, 255, 255, 0.9);
+  --glass-border: rgba(255, 149, 0, 0.1);
+  --glass-backdrop: blur(10px);
+}
